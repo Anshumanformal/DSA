@@ -15,6 +15,8 @@ public:
     // }
     // return false;
         
+        // better solution
+        
         stack<int> st;
         int s2 = INT_MIN;
         
