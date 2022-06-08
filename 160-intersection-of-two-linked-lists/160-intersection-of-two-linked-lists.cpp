@@ -17,7 +17,7 @@ public:
             p1 = p1->next;
             p2 = p2->next;
             if(p1 == NULL && p2 == NULL)
-                //The linked lists did not have a intersection point.
+                //The linked lists did not have an intersection point.
                 return NULL;
             if(p1 == NULL)
                 p1 = headB;
