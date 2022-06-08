@@ -103,14 +103,6 @@ int main()
 Node* LCA(Node *root, int n1, int n2)
 {
    //Your code here
-//   Node* curr = root;
-//   while(true){
-//       if(n1 > root->data and n2 > root->data)
-//             curr = curr->right;
-//       else if(n1 < root->data and n2 < root->data)
-//             curr = curr->left;
-//       else return curr;
-//   }
 
      if(root==NULL || root->data==n1 || root->data==n2)
        return root;
