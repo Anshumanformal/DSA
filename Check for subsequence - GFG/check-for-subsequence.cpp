@@ -16,7 +16,7 @@ class Solution{
                 i++, j++;
             else j++;
         }
-        if(i == m) return true; 
+        if(i == m) return true;  // all the elements have matched
         if(j==n && i != m) return false;
     }
 };
