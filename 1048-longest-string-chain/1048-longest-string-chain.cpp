@@ -4,7 +4,6 @@ public:
     static bool compare(const string &s1, const string &s2){
         return s1.length() < s2.length();
     }
-        
     
     int longestStrChain(vector<string>& words) {
         sort(words.begin(), words.end(), compare);
