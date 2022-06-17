@@ -11,17 +11,17 @@ public:
         // return nums[k - 1];
         
         // 3rd solution - C++ STL has partial_sort built-in function
-        partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
-        return nums[k - 1];
+        // partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
+        // return nums[k - 1];
         
         // since k'th largest element is asked, hence we create a minHeap for this question.
-        // priority_queue<int,vector<int>,greater<int>> pq;
-        // for(int num : nums){
-        //     pq.push(num);
-        //     if(pq.size() > k)
-        //         pq.pop();
-        // }
-        // return pq.top();
+        priority_queue<int,vector<int>,greater<int>> pq;
+        for(int num : nums){
+            pq.push(num);
+            if(pq.size() > k)
+                pq.pop();
+        }
+        return pq.top();
         
         // A maxHeap can also be created.
         
