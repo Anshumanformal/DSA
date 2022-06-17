@@ -14,17 +14,21 @@ public:
         // partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
         // return nums[k - 1];
         
+        // 4th solution - using minHeap
         // since k'th largest element is asked, hence we create a minHeap for this question.
-        priority_queue<int,vector<int>,greater<int>> pq;
-        for(int num : nums){
-            pq.push(num);
-            if(pq.size() > k)
-                pq.pop();
+        // priority_queue<int,vector<int>,greater<int>> pq;
+        // for(int num : nums){
+        //     pq.push(num);
+        //     if(pq.size() > k)
+        //         pq.pop();
+        // }
+        // return pq.top();
+        
+        // 5th solution - using maxHeap
+        priority_queue<int> pq(nums.begin(), nums.end());
+        for (int i=0; i<k-1; i++){
+            pq.pop();
         }
         return pq.top();
-        
-        // A maxHeap can also be created.
-        
-        
     }
 };
