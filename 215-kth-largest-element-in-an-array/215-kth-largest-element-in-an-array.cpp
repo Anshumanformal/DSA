@@ -7,8 +7,8 @@ public:
         // return nums[k-1];
         
         // 2nd solution - C++ STL has nth_element built-in function
-        // nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
-        // return nums[k - 1];
+        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
+        return nums[k - 1];
         
         // 3rd solution - C++ STL has partial_sort built-in function
         // partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
@@ -25,10 +25,10 @@ public:
         // return pq.top();
         
         // 5th solution - using maxHeap
-        priority_queue<int> pq(nums.begin(), nums.end());
-        for (int i=0; i<k-1; i++){
-            pq.pop();
-        }
-        return pq.top();
+        // priority_queue<int> pq(nums.begin(), nums.end());
+        // for (int i=0; i<k-1; i++){
+        //     pq.pop();
+        // }
+        // return pq.top();
     }
 };
