@@ -7,12 +7,12 @@ public:
         // return nums[k-1];
         
         // 2nd solution - C++ STL has nth_element built-in function
-        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
-        return nums[k - 1];
+        // nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
+        // return nums[k - 1];
         
         // 3rd solution - C++ STL has partial_sort built-in function
-        // partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
-        // return nums[k - 1];
+        partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
+        return nums[k - 1];
         
         // since k'th largest element is asked, hence we create a minHeap for this question.
         // priority_queue<int,vector<int>,greater<int>> pq;
