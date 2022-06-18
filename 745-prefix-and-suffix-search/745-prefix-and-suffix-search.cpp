@@ -11,14 +11,14 @@ class WordFilter {
                     string s = "";
                     for(int k=words[i].size()-1; k>=0; k--){
                         s = words[i][k] + s;
-                        dict[p + "|" + s] = i+1;
+                        dict[p + "|" + s] = i+1;  // to handle the no word case in dictionary
                     }
                 }
             }
     }
     
     int f(string prefix, string suffix) {
-        return dict[prefix + "|" + suffix] - 1;
+        return dict[prefix + "|" + suffix] - 1;  // to handle the no word case in dictionary
     }
 };
 
