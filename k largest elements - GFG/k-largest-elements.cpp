@@ -10,12 +10,30 @@ class Solution{
 public:	
 	vector<int> kLargest(int arr[], int n, int k) {
 	    // code here
-	    partial_sort(arr, arr+k,arr+n, greater<int>());
-	    vector<int>res;
-	    for(int i=0; i<k; i++)
-	        res.push_back(arr[i]);
+	   // 1st method - using Partial sort
+	   // partial_sort(arr, arr+k,arr+n, greater<int>());
+	   // vector<int>res;
+	   // for(int i=0; i<k; i++)
+	   //     res.push_back(arr[i]);
 	    
-	    return res;
+	   // return res;
+	   
+	  // 2nd method - using Heap
+	  priority_queue<int, vector<int>, greater<int>> minHeap;
+      for(int i=0; i<n; i++){
+        minHeap.push(arr[i]);
+        while(minHeap.size() > k)
+          minHeap.pop();
+      }
+    
+      vector<int> vec;
+      while(minHeap.size()){
+        vec.push_back(minHeap.top());
+        minHeap.pop();
+      }
+    
+      reverse(vec.begin(), vec.end());
+      return vec;
 	}
 
 };
