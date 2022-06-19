@@ -34,6 +34,9 @@ public:
     
       reverse(vec.begin(), vec.end());
       return vec;
+      
+      
+      // 3rd method - simply sort in descending order and print the first 3 values
 	}
 
 };
