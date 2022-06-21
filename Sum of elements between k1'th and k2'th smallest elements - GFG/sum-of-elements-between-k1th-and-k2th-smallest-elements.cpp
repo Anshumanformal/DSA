@@ -6,6 +6,13 @@ using namespace std;
 class Solution{
     public:
     
+    long long kthSmallestElement(long long arr[], long long n, long long k){
+        priority_queue<long long> pq(arr, arr+n); // maxHeap
+        while(pq.size() > k)
+            pq.pop();
+        return pq.top();
+    }
+    
     long long sumBetweenTwoKth( long long A[], long long N, long long K1, long long K2)
     {
         // Your code goes here
@@ -18,21 +25,15 @@ class Solution{
         // return res;
         
         // 2nd solution
-         long long k=1;
-       long long sum=0;
-       priority_queue<long long,vector<long long >,greater<long long >> q;
-       for(long long i=0;i<N;i++){
-           q.push(A[i]);
-       }
-       
-       while(!q.empty()){
-           if(k>K1&& k<K2){
-               sum+=q.top();
-           }
-           q.pop();
-           k++;
-       }
-       return sum;
+        long long sum = 0;
+        
+        long long k1 = kthSmallestElement(A,N,K1);
+        long long k2 = kthSmallestElement(A,N,K2);
+
+        for(long long i=0; i<N; i++)
+          if(A[i] > k1 && A[i] < k2)
+                sum += A[i];
+        return sum;
     }
 };
 
