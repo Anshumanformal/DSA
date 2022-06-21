@@ -5,16 +5,25 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
     public:
+    
     long long sumBetweenTwoKth( long long A[], long long N, long long K1, long long K2)
     {
         // Your code goes here
-        // simple solution
-        sort(A,A+N);
-        long long res=0;
-        for(long long i=K1; i<K2-1; i++)
-            res += A[i];
-        
-        return res;
+        long long k=1;
+       long long sum=0;
+       priority_queue<long long,vector<long long >,greater<long long >> q;
+       for(long long i=0;i<N;i++){
+           q.push(A[i]);
+       }
+       
+       while(!q.empty()){
+           if(k>K1&& k<K2){
+               sum+=q.top();
+           }
+           q.pop();
+           k++;
+       }
+       return sum;
     }
 };
 
