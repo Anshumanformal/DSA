@@ -9,7 +9,16 @@ class Solution{
     long long sumBetweenTwoKth( long long A[], long long N, long long K1, long long K2)
     {
         // Your code goes here
-        long long k=1;
+        // 1st solution - using sorting
+        // sort(A,A+N);
+        // long long res=0;
+        // for(long long i=K1; i<K2-1; i++)
+        //     res += A[i];
+        
+        // return res;
+        
+        // 2nd solution
+         long long k=1;
        long long sum=0;
        priority_queue<long long,vector<long long >,greater<long long >> q;
        for(long long i=0;i<N;i++){
