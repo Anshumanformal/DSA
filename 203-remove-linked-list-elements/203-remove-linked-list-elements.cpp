@@ -10,6 +10,10 @@
  */
 class Solution {
 public:
+    
+    // In this question, when I mentioned !head, then leetcode produced wrong answer, but when I wrote
+    // head==nullptr, then the solution was accepted.
+    
     ListNode* removeElements(ListNode* head, int val) {
         if(head==nullptr) return head;
         
