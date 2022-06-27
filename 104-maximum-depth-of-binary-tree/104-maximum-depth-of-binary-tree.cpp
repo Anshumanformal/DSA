@@ -20,7 +20,7 @@ public:
         
         // we return 1 + max of the height of left and right subtree. We add 1 because the total height
         // of the tree is equal to just 1 more than the left and right subtree.
-        return 1 + max(left,right);
+        return max(left,right)+1;
 
     }
 };
