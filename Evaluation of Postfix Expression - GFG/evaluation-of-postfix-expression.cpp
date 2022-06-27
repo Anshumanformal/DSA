@@ -34,7 +34,9 @@ class Solution
                 st.push(ans);                
             }
         }
-        return st.top();
+        return ans; // we can also return ans, as latest value of ans
+        // would be updated with stack.top()
+        // return st.top();
     }
 };
 
