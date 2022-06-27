@@ -11,22 +11,13 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* start = new ListNode();
-        start->next = head;
-        
-        ListNode* fast = start;
-        ListNode* slow = start;
-        
-        // loop runs from 1 to n because we have to delete nth node from end and 'n' is not zero based.
-        for(int i=1; i<=n; ++i)
-            fast = fast->next; // this loop will stop when the fast pointer points to NULL
-        
-        while(fast->next != NULL){
-            fast = fast->next;
-            slow = slow->next;
-        }
-        
+        ListNode *fast = head, *slow = head;
+        for (int i = 0; i < n; i++) fast = fast->next;
+        if (!fast) return head->next;
+        while (fast->next) fast = fast->next, slow = slow->next;
+        // Basically we make distance between fast pointer and slow pointer the same as the n'th node
+        // from last. After that, we let them increment until fast is null. At that time, slow points to the link, which needs to be removed.
         slow->next = slow->next->next;
-        return start->next;
+        return head;
     }
 };
