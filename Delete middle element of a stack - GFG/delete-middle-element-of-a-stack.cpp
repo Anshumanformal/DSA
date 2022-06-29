@@ -10,18 +10,30 @@ using namespace std;
 class Solution
 {
     public:
+    
+    void delete_middle_element_from_stack_recursively(stack<int>& st, int k){
+        if(k==1){
+            st.pop();
+            return;
+        }
+
+        int top_ele = st.top();
+        st.pop();
+        delete_middle_element_from_stack_recursively(st,k-1);
+        st.push(top_ele);
+        return;
+    }
+    
+    void find_middle_element(stack<int>& st, int sizeOfStack){
+        int middle_element = sizeOfStack/2 + 1;
+        delete_middle_element_from_stack_recursively(st,middle_element);
+    }
+    
     //Function to delete middle element of a stack.
     void deleteMid(stack<int>&s, int sizeOfStack)
     {
         // code here..
-        if(ceil(sizeOfStack/2.0) == s.size()){
-            s.pop();
-            return;
-        }
-        int top_ele = s.top();
-        s.pop();
-        deleteMid(s,sizeOfStack);
-        s.push(top_ele);
+        find_middle_element(s, sizeOfStack);
     }
 };
 
