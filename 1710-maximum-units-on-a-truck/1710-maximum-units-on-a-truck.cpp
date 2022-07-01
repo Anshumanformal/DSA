@@ -30,6 +30,8 @@ public:
 //     }
     
      // Method 2 - using Priority queue(maxHeap)
+     // In this method, the priority queue insertion works as the sorting function of the previous
+     // method. Otherwise, all other steps are same.
      int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
      
          priority_queue<pair<int,int>> pq;
@@ -50,7 +52,6 @@ public:
                  pq.pop();
                  break;
              }
-             
          }
          
          return ans;         
