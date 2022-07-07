@@ -1,31 +1,35 @@
 class Solution {
 public:
     
-    vector<string> valid;
+void solve(int open, int close, string output, vector<string>& answer){
     
-    void generate(string& s, int open, int close){
-        
-        if(open == 0 and close == 0){
-            valid.push_back(s);
+    // base condition
+    if(open == 0 && close == 0){
+        answer.push_back(output);
+        return;
+    }
+    else {
+        // check if we have the open count, then push the opening bracket to the string
+        if(open != 0){
+            string op1 = output;
+            op1.push_back('(');
+            solve(open-1, close, op1, answer);
+        }
+        // if the open count is less than the close count, then we can add the closing bracket to the string
+        if(open < close){
+            string op2 = output;
+            op2.push_back(')');
+            solve(open, close-1, op2, answer);
             return;
         }
-        if(open > 0){
-            s.push_back('(');
-            generate(s,open-1,close);
-            s.pop_back();
-        }
-        if(close > 0){
-            if(open < close){
-                s.push_back(')');
-                generate(s,open,close-1);
-                s.pop_back();
-            }
-        }
     }
+}
     
     vector<string> generateParenthesis(int n) {
-        string s;
-        generate(s,n,n);
-        return valid;
+        int open = n, close = n; // using two separate variable to store the count of open and closed brackets
+        vector<string> answer;
+        string output = "";
+        solve(open, close, output, answer);
+        return answer;
     }
 };
