@@ -10,7 +10,7 @@ public:
         for (int i=0; i<n+1; i++)
             t[i][0] = 0;
         
-        for (int j=1; j<=amount; j++)
+        for (int j=1; j<=sum; j++)
             t[0][j] = INT_MAX;
 
 
