@@ -11,7 +11,7 @@ public:
             t[i][0] = 0;
         
         for (int j=1; j<sum+1; j++)
-            t[0][j] = INT_MAX;
+            t[0][j] = INT_MAX-1;
 
 
         // filling the matrix
@@ -23,7 +23,7 @@ public:
                     t[i][j] = t[i-1][j];
             }
         }
-        if(t[n][sum] == INT_MAX)
+        if(t[n][sum] == INT_MAX-1)
             return -1;
         return t[n][sum];
         
