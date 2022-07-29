@@ -11,26 +11,13 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        // cout <<"\nUsing recursive approach\n";
-
-        // if(head==NULL || head->next == NULL)
-        //     return head;
-        // ListNode* nextNode = reverseList(head->next);
-        // ListNode* headNext = head->next;
-        // headNext->next = head;
-        // head->next = NULL;
-        // return nextNode;
-        
-        
-        // cout <<"\nUsing iterative approach\n";
-
-        ListNode* prevNode=NULL;
-            while(head!=NULL){
-                ListNode* nextNode = head->next;
-                head->next=prevNode;
-                prevNode=head;
-                head=nextNode;
-            }
-        return prevNode;
+         struct ListNode* temp=NULL;
+        while(head!=NULL){
+            struct ListNode* next = head->next;
+            head->next=temp;
+            temp=head;
+            head=next;
+        }
+        return temp;
     }
 };
