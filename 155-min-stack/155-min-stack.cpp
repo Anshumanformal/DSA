@@ -8,14 +8,19 @@ class MinStack {
     
     void push(int val) {
         s1.push(val);
-        if(s2.empty() || val <= getMin())
+        if(s2.empty() || s2.top() >= val)
             s2.push(val);
+        return;
     }
     
     void pop() {
-        if(s1.top() == getMin())
-            s2.pop();
+        if(s1.empty())
+            return;
+        int ans = s1.top();
         s1.pop();
+        if(ans == s2.top())
+            s2.pop();
+        return;
     }
     
     int top() {
@@ -23,7 +28,10 @@ class MinStack {
     }
     
     int getMin() {
-        return s2.top();
+        if(s2.empty())
+            return -1;
+        else
+            return s2.top();
     }
 };
 
