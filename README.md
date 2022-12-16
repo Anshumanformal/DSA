@@ -1,2 +1,2 @@
-# LeetCode
-My LeetCode solutions
+# LeetCode + DSA solutions
+My LeetCode + DSA solutions
