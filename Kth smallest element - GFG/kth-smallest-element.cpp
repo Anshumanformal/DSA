@@ -23,7 +23,6 @@ class Solution{
             if(pq.size() > k)
                 pq.pop();
         }
-        int ans ;
         
         return pq.top();
     }
